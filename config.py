@@ -12,6 +12,8 @@ def load_config(config_file='config.json'):
 # Load the configuration data
 config = load_config()
 
+NAME = config['Name']
+
 CLICKUP_ENDPOINT = 'https://api.clickup.com/api/v2/'
 
 CLICKUP_API_KEY = os.getenv('CLICKUP_API_KEY')
@@ -21,7 +23,6 @@ if CLICKUP_API_KEY is None:
 CLICKUP_TEAM_ID = os.getenv('CLICKUP_TEAM_ID')
 if CLICKUP_TEAM_ID is None:
     raise KeyError("CLICKUP_TEAM_ID")
-NAME = config['Name']
 
 clickup_headers = {
     'Authorization': CLICKUP_API_KEY,

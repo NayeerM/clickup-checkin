@@ -1,11 +1,15 @@
 import logging
 from datetime import datetime
+import os
 
 logger = logging.getLogger(__name__)
 
+log_dir = "D:/Junk/Logs"
+os.makedirs(log_dir, exist_ok=True)
+
 # Create a file handler with a date in the filename
 now = datetime.now()
-filename = f'app_{now.strftime("%Y-%m-%d")}.log'
+filename = os.path.join(log_dir, f'clickup_auto_checkin_{now.strftime("%Y-%m-%d")}.log')
 file_handler = logging.FileHandler(filename)
 file_handler.setLevel(logging.INFO)
 
