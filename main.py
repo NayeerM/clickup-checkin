@@ -102,9 +102,6 @@ def checkin_to_cickup():
         custom_field_id = next((item['id'] for item in custom_fields if "Location" in item['name']), None)
         update_clickup_custom_field(task_id, custom_field_id, 1)
 
-        custom_field_id = next((item['id'] for item in custom_fields if "Health Level" in item['name']), None)
-        update_clickup_custom_field(task_id, custom_field_id, 5)
-
     logger.info(f'Successfully updated ClickUp task with ID {task_id} with custom field {custom_field_name} for action {action}.')
 
 if __name__ == '__main__':
